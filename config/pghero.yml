@@ -1,0 +1,16 @@
+databases:
+<%=
+  data = []
+  unless ENV['PGHERO_DATABASE_URL'].nil?
+    data << "  DEFAULT:\n    url: #{ENV['PGHERO_DATABASE_URL']}\n"
+  end
+  dbs = (ENV['PGHERO_DATABASES'] || '').split(',')
+  dbs.each do |d|
+    name, env = d.split('=',2)
+    unless ENV[env].nil?
+      data << "  #{name}:\n    url: #{ENV[env]}\n"
+    end
+  end
+
+  data.join
+%>
