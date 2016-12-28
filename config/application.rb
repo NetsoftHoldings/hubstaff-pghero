@@ -29,6 +29,8 @@ module PgHeroSolo
       config.logger = ActiveSupport::TaggedLogging.new(logger)
     end
 
+    config.force_ssl = ENV['FORCE_SSL'] ? true : false
+
     PgHero.show_migrations = false
   end
 end
