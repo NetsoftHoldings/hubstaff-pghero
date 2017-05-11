@@ -32,5 +32,9 @@ module PgHeroSolo
     config.force_ssl = ENV['FORCE_SSL'] ? true : false
 
     PgHero.show_migrations = false
+
+    if ENV['PGHERO_USERNAME'].nil?
+      config.middleware.use HubstaffAuth::RackAuth
+    end
   end
 end
