@@ -13,3 +13,13 @@ gem "aws-sdk-cloudwatch"
 gem "puma"
 gem "activerecord-nulldb-adapter", require: false
 gem "tzinfo-data"
+
+source 'https://gems.outoforder.cc/' do
+  gem 'hubstaff_auth', '~> 0.16.0'
+  # gem 'hubstaff_auth', path: '../hubstaff_auth'
+end
+
+group :development do
+  gem 'dotenv-rails'
+  gem 'awesome_print'
+end
