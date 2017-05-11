@@ -1,6 +1,6 @@
 require "bundler/setup"
-Bundler.require
-require "rails/all"
+require 'rails/all'
+Bundler.require(*Rails.groups)
 
 unless ENV["DATABASE_URL"]
   if File.exist?(PgHero.config_path)
